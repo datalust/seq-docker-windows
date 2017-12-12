@@ -1,8 +1,8 @@
 FROM microsoft/windowsservercore
 
-ARG SEQ_VERSION
-
 SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop';"]
+
+ARG SEQ_VERSION
 
 LABEL Description="Seq (Windows Server)" Vendor="Datalust" Version="$SEQ_VERSION"
 
