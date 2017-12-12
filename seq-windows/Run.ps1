@@ -1,4 +1,8 @@
-if ($env:ACCEPT_EULA -ne 'Y') {
+param (
+    [string] $eulaAccepted
+)
+
+if ($eulaAccepted -ne 'Y') {
     throw 'The Seq End User License Agreement must be accepted in order to use this Docker image.';
 }
 
