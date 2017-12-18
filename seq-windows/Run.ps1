@@ -25,7 +25,7 @@ Start-Sleep -Seconds 5;
 
 Write-Output "Startup logs:"
 Get-ChildItem C:/ProgramData/Seq/Logs | ForEach-Object{
-    Get-Content $_
+    Get-Content $_.FullName
 }
 
 while ("$(& $seqExe status)".Contains("running")) {

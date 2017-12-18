@@ -1,14 +1,14 @@
 # Seq Dockerfiles
 
-Dockerfiles to assist with the deployment of [Seq](https://getseq.net).
+Dockerfiles to assist with the deployment of [Seq](https://getseq.net); images will eventually be available from Docker Hub. These are currently work-in-progress and not suitable for production use.
 
-**Status:** this repository is work-in-progress and should not be used for mission-critical deployments.
+## `seq-windows`
+
+The `seq-windows` container is based on the `microsoft/windowsservercore` base image. **This container is not currently suitable for production use.**
 
 ### Building
 
-Images built from these dockerfiles will be published under the `/datalust` organization on Docker Hub (TBD).
-
-To build an image:
+To build the `seq-windows` image:
 
 ```shell
 cd ./seq-windows
@@ -23,22 +23,6 @@ To run the container, the Seq EULA must be accepted by passing `ACCEPT_EULA=Y` i
 docker run -p 5341:5341 -e ACCEPT_EULA=Y seq-windows
 ```
 
-### Storage
-
-By default, data will be stored in the running container. This will not survive restarts.
-
-To use a persistent folder on the host machine instead, mount it into `C:\ProgramData\Seq`:
-
-**Note, this currently fails, TBD.**
-
-```shell
-docker run -p 5341:5341 -e ACCEPT_EULA=Y -v C:/Users/nblumhardt/Desktop/data:C:/ProgramData/Seq seq-windows
-```
-
-### Ports and protocols
-
-The image exposes the Seq web UI on port 5341. **HTTPS is not yet supported.**
-
 ### License
 
 By passing the value `Y` in the `ACCEPT_EULA` environment variable, you are expressing that your use of the
@@ -47,3 +31,11 @@ a copy of which can be viewed via the installer MSI for that Seq version.
 
 Source code in this repository (build scripts and Dockerfiles) are licensed under the Apache 2.0 License. This
 does not include the Seq installer or executable/content files that will be embedded into built Docker images.
+
+### Storage
+
+Data will be stored in the running container. This will not survive restarts. **Persistent volume mounts are not yet supported.**
+
+### Ports and protocols
+
+The image exposes the Seq web UI on port 5341. **HTTPS is not yet supported.**
