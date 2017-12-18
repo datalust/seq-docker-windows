@@ -20,7 +20,7 @@ docker build -t seq-windows --build-arg SEQ_VERSION=4.1.17 .
 To run the container, the Seq EULA must be accepted by passing `ACCEPT_EULA=Y` in the environment:
 
 ```shell
-docker run seq-windows -p 5341:5341 -e ACCEPT_EULA=Y
+docker run -p 5341:5341 -e ACCEPT_EULA=Y seq-windows
 ```
 
 ### Storage
@@ -29,12 +29,15 @@ By default, data will be stored in the running container. This will not survive 
 
 To use a persistent folder on the host machine instead, mount it into `C:\ProgramData\Seq`:
 
+**Note, this currently fails, TBD.**
+
 ```shell
+docker run -p 5341:5341 -e ACCEPT_EULA=Y -v C:/Users/nblumhardt/Desktop/data:C:/ProgramData/Seq seq-windows
 ```
 
 ### Ports and protocols
 
-The image exposes the Seq web UI on port 5341. HTTPS is not yet supported.
+The image exposes the Seq web UI on port 5341. **HTTPS is not yet supported.**
 
 ### License
 
