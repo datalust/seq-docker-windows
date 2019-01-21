@@ -1,12 +1,8 @@
-# Seq Dockerfiles
+# Seq Windows Dockerfile
 
-Dockerfiles to assist with the deployment of [Seq](https://getseq.net); images are available from [`datalust` on Docker Hub](https://hub.docker.com/r/datalust/).
+The `datalust/seq-windows` container is based on the `microsoft/windowsservercore` base image.
 
-**These are currently work-in-progress and not suitable for production use.**
-
-## `seq-windows`
-
-The `seq-windows` container is based on the `microsoft/windowsservercore` base image.
+**This container is not currently suitable for production use.** While it's possible this container will be updated in the future, it's currently in an experimental state, and does not host the latest-and-greatest version of Seq. Use [the MSI](https://getseq.net/download) for Windows production workloads, or [`datalust/seq`](https://hub.docker.com/r/datalust/seq) for Linux servers.
 
 ### Running
 
